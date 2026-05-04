@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Serif, Mona_Sans } from "next/font/google";
+import { IBM_Plex_Serif, Mona_Sans} from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
+
+import Navbar from "@/components/Navbar";
 import "./globals.css";
+import {Toaster} from "@/components/ui/sonner";
 
 const ibmPlexSerif = IBM_Plex_Serif({
     variable: "--font-ibm-plex-serif",
@@ -16,7 +20,7 @@ const monaSans = Mona_Sans({
 })
 
 export const metadata: Metadata = {
-  title: "Bookify",
+  title: "Bookified",
   description: "Transform your books into interactive AI conversations. Upload PDFs, and chat with your books using voice.",
 };
 
@@ -26,11 +30,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${ibmPlexSerif.variable} ${monaSans.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
-    </html>
+    <ClerkProvider>
+        <html lang="en">
+          <body
+            className={`${ibmPlexSerif.variable} ${monaSans.variable} relative font-sans antialiased`}
+          >
+            <Navbar />
+            {children}
+            <Toaster />
+          </body>
+        </html>
+    </ClerkProvider>
   );
 }
