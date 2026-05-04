@@ -20,7 +20,7 @@ const monaSans = Mona_Sans({
 })
 
 export const metadata: Metadata = {
-  title: "Bookified",
+  title: "Bookify",
   description: "Transform your books into interactive AI conversations. Upload PDFs, and chat with your books using voice.",
 };
 
@@ -36,7 +36,9 @@ export default function RootLayout({
             className={`${ibmPlexSerif.variable} ${monaSans.variable} relative font-sans antialiased`}
           >
             <Navbar />
-            {children}
+            <main>
+              {children}
+            </main>
             <Toaster />
           </body>
         </html>

@@ -24,12 +24,12 @@ const Navbar = () => {
         <Link href="/" className="flex gap-0.5 items-center">
         <Image
             src="/assets/logo.png"
-            alt="Bookified"
+            alt="Bookify"
             width={42}
             height={26}
             style={{ width: "auto", height: "auto" }}
         />
-          <span className="logo-text">Bookified</span>
+          <span className="logo-text">Bookify</span>
         </Link>
 
         {/* Navigation */}
